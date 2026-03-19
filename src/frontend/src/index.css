@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1rem;
+    --background: 0.98 0.005 240;
+    --foreground: 0.22 0.1 295;
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.1 295;
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.1 295;
+    --primary: 0.58 0.2 258;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.69 0.12 192;
+    --secondary-foreground: 1 0 0;
+    --muted: 0.95 0.01 240;
+    --muted-foreground: 0.5 0.05 240;
+    --accent: 0.74 0.16 55;
+    --accent-foreground: 1 0 0;
+    --destructive: 0.65 0.22 25;
+    --destructive-foreground: 1 0 0;
+    --border: 0.9 0.02 240;
+    --input: 0.9 0.02 240;
+    --ring: 0.69 0.12 192;
+    --chart-1: 0.69 0.12 192;
+    --chart-2: 0.58 0.2 258;
+    --chart-3: 0.74 0.16 55;
+    --chart-4: 0.72 0.18 141;
+    --chart-5: 0.57 0.2 294;
+    --sidebar: 0.98 0.005 240;
+    --sidebar-foreground: 0.22 0.1 295;
+    --sidebar-primary: 0.58 0.2 258;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.95 0.01 240;
+    --sidebar-accent-foreground: 0.22 0.1 295;
+    --sidebar-border: 0.9 0.02 240;
+    --sidebar-ring: 0.69 0.12 192;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Nunito Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Nunito", sans-serif;
+  }
+  .kid-shadow {
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.15), 0 2px 8px -2px
+      rgba(0, 0, 0, 0.1);
+  }
+  .kid-shadow-lg {
+    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.2), 0 4px 12px -4px
+      rgba(0, 0, 0, 0.1);
+  }
+  .btn-bounce {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-bounce:hover {
+    transform: translateY(-3px) scale(1.03);
+  }
+  .btn-bounce:active {
+    transform: translateY(1px) scale(0.97);
+  }
+  .star-spin {
+    animation: starSpin 3s linear infinite;
+  }
+  @keyframes starSpin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  @keyframes confettiFall {
+    0% {
+      transform: translateY(-10px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  @keyframes popIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-8px);
+    }
+    40% {
+      transform: translateX(8px);
+    }
+    60% {
+      transform: translateX(-6px);
+    }
+    80% {
+      transform: translateX(6px);
+    }
+  }
+  .pop-in {
+    animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  .shake-anim {
+    animation: shake 0.4s ease;
+  }
+  .confetti-piece {
+    position: fixed;
+    animation: confettiFall linear forwards;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 2px;
+  }
+}
